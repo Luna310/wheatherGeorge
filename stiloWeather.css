@@ -1,0 +1,23 @@
+.container1{
+	display: flex;
+	align-content: space-around;
+}
+
+body {
+    background-color: cadetblue;
+    font-family: fantasy;
+}
+
+.cabecera{
+	margin-top: 24px;
+}
+.buttonText {
+    background-color: white;
+    margin-top: 17px;
+    border-radius: 10px;
+}
+
+.row {
+    margin-right: 20px;
+    margin-left: 20px;
+}

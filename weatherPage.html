@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Weather Page of George Moon</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!--scrip para conectar con vue a través de CDN-->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<link rel="stylesheet" href="stiloWeather.css">
+</head>
+
+<body>
+	<div class="container" id="app">
+		<header class="cabecera">
+
+			<div class="row">
+				<div class="col-lg-5">
+					<h1>Information offered by:</h1>
+				</div>
+				<div class="col-lg-2">
+					<img src="imgWeather/george.png">
+
+				</div>
+				<div class="col-lg-1">
+
+				</div>
+				<div class="col-lg-3">
+
+					<img src="imgWeather/ubiqum2.png">
+				</div>
+			</div>
+			<div class="buttonText">
+				<!--	boton input que cambia el valor de la variable city.-->
+				Enter the City:
+				<input class="" type="text" name="city" id="city" v-model="city" placeholder="city">
+
+				<input type="button" value="Click Me" class="btn btn-default" @Click="getData()">
+			</div>
+			<div>
+				<h2 id="nameCity">{{city}}</h2>
+			</div>
+		</header>
+
+		<div class="row">
+			<div class="col-lg-5">
+
+				<h2>Today</h2>
+				<table class="table table-striped">
+					<thead class="">
+						<tr>
+							<th>Date</th>
+							<th>Temp_max</th>
+							<th>Temp_min</th>
+							<th>Humidity</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{horaDia0}}</td>
+							<td>{{tempMax0}}</td>
+							<td>{{tempMin0}}</td>
+							<td>{{humidity0}}</td>
+						</tr>
+						<tr>
+							<td>{{horaDia3}}</td>
+							<td>{{tempMax3}}</td>
+							<td>{{tempMin3}}</td>
+							<td>{{humidity3}}</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-5">
+				<h2>Tomorrow</h2>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Temp_max</th>
+							<th>Temp_min</th>
+							<th>Humidity</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{horaDia8}}</td>
+							<td>{{tempMax8}}</td>
+							<td>{{tempMin8}}</td>
+							<td>{{humidity8}}</td>
+						</tr>
+						<tr>
+							<td>{{horaDia11}}</td>
+							<td>{{tempMax11}}</td>
+							<td>{{tempMin11}}</td>
+							<td>{{humidity11}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+		<div class="row">
+			<div class="col-lg-5">
+
+				<h3>What is happening there?</h3>
+				<div id="myImg" style="align-content: center">
+				</div>
+
+			</div>
+
+			<div class="col-lg-2"></div>
+
+			<div class="col-lg-5">
+				<h3>What will happening there?</h3>
+				<div class="center-block" id="myImg2">
+
+				</div>
+			</div>
+		</div>
+		<script src="weather.js"></script>
+	</div>
+</body>
+
+</html>
