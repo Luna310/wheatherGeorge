@@ -1,10 +1,10 @@
 var app = new Vue({
 	el: '#app',
 	data: {
+
 		nameCity: "",
 		weatherDates: [],
 		city: "",
-		cityWell: "",
 		imgTime: "",
 		imgTime2: "",
 
@@ -32,6 +32,7 @@ var app = new Vue({
 	},
 	created: function () {
 		//		this.getData();
+		//this.getDataCity();
 
 	},
 	methods: {
@@ -49,7 +50,7 @@ var app = new Vue({
 
 			}).then(function (json) {
 				//aqui van las llamadas
-				app.weatherDates = "";
+
 				app.weatherDates = json;
 				app.changeCity;
 				app.city;
@@ -83,18 +84,14 @@ var app = new Vue({
 
 			}).catch(function (error) {
 				console.log("Request failed:" + error.message);
+				document.getElementById("myImg").innerHTML = "The name of the city is wrong";
+				document.getElementById("myImg2").innerHTML = "The name of the city is wrong"
+
 			});
-		},
-		getName: function () {
-
-			var x = document.getElementById("nameCity").placeholder;
-			this.city = x;
-
 		},
 		//función para rellenar datos
 		datesFouHour: function () {
 
-			this.cityWell = "Introduzca una ciudad correcta."
 			this.horaDia0 = app.weatherDates.list[0].dt_txt;
 			this.tempMax0 = Math.floor(app.weatherDates.list[0].main.temp_max - 273, 15) + "º";
 			this.tempMin0 = Math.floor(app.weatherDates.list[0].main.temp_min - 273, 15) + "º";
@@ -117,7 +114,8 @@ var app = new Vue({
 
 			//this.IfGif = app.weatherDates.list[0].weather[3];
 		},
-
+		//funcion que ingresa el gif dependiendo del tiempo que haga.
+		//el dato lo filtra a traves del main del objeto weather.
 		getGif: function () {
 			//sentencia con la que limpio los gif.
 			document.getElementById("myImg").innerHTML = "";
@@ -149,10 +147,17 @@ var app = new Vue({
 			} else if (this.weatherDates.list[0].weather[0].main == "Rain") {
 
 				var x = document.createElement("IMG");
-				x.setAttribute("src", "imgWeather/lluvia3.gif");
+				x.setAttribute("src", "imgWeather/lluvia4.gif");
 				var y = document.createElement("h3");
 				y.innerHTML = "Do not forget the umbrella!!";
 
+
+			} else if (this.weatherDates.list[0].weather[0].main == "Snow") {
+
+				var x = document.createElement("IMG");
+				x.setAttribute("src", "imgWeather/nieve2.gif");
+				var y = document.createElement("h3");
+				y.innerHTML = "Choose jacket or house.";
 
 			} else {
 				var x = document.createElement("IMG");
@@ -193,9 +198,16 @@ var app = new Vue({
 			} else if (this.weatherDates.list[8].weather[0].main == "Rain") {
 
 				var x = document.createElement("IMG");
-				x.setAttribute("src", "imgWeather/lluvia3.gif");
+				x.setAttribute("src", "imgWeather/lluvia4.gif");
 				var y = document.createElement("h3");
 				y.innerHTML = "Do not forget the umbrella.";
+
+			} else if (this.weatherDates.list[8].weather[0].main == "Snow") {
+
+				var x = document.createElement("IMG");
+				x.setAttribute("src", "imgWeather/nieve2.gif");
+				var y = document.createElement("h3");
+				y.innerHTML = "Choose jacket or house.";
 
 			} else {
 				var x = document.createElement("IMG");
@@ -203,7 +215,7 @@ var app = new Vue({
 				var y = document.createElement("h3");
 				y.innerHTML = "Something strange is happening there!!";
 			}
-
+			console.log(this.weatherDates.list[8].weather[0].main)
 			document.getElementById("myImg2").appendChild(x);
 			document.getElementById("myImg2").appendChild(y);
 
