@@ -85,8 +85,26 @@ var app = new Vue({
 			}).catch(function (error) {
 				console.log("Request failed:" + error.message);
 				document.getElementById("myImg").innerHTML = "The name of the city is wrong";
-				document.getElementById("myImg2").innerHTML = "The name of the city is wrong"
+				document.getElementById("myImg2").innerHTML = "The name of the city is wrong";
+				
+				app.tempMax0 = "-";
+				app.tempMin0 = "-";
+				app.humidity0 = "-";
 
+				
+				app.tempMax3 = "-";
+				app.tempMin3 = "-";
+				app.humidity3 = "-";
+
+				
+				app.tempMax8 = "-";
+				app.tempMin8 = "-";
+				app.humidity8 = "-";
+
+				
+				app.tempMax11 = "-";
+				app.tempMin11 = "-";
+				app.humidity11 = "-";
 			});
 		},
 		//función para rellenar datos
@@ -118,6 +136,7 @@ var app = new Vue({
 		//el dato lo filtra a traves del main del objeto weather.
 		getGif: function () {
 			//sentencia con la que limpio los gif.
+
 			document.getElementById("myImg").innerHTML = "";
 			document.getElementById("myImg2").innerHTML = "";
 
